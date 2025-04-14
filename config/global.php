@@ -12,12 +12,12 @@ define("DB_NAME", "bizstryv2");
 
 
 //nombre de usuario de base de datos
-define("DB_USERNAME", "root");
-
+// define("DB_USERNAME", "root");
+define("DB_USERNAME", "");
 
 //conraseña del usuario de base de datos
-define("DB_PASSWORD", "HELADOnomegusta");
-
+//define("DB_PASSWORD", "HELADOnomegusta");
+define("DB_PASSWORD", "");
 
 
 //codificacion de caracteres

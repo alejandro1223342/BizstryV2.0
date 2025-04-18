@@ -2,7 +2,7 @@ var tabla;
 
 function init() {
     listar();
-    
+
 }
 
 
@@ -25,13 +25,13 @@ function listar() {
     });
 }
 
-function detallePedido(ped_id){
+function detallePedido(ped_id) {
     $('#modalDetallePedido').modal('show');
     mostrar_pedido(ped_id);
     mostrar_detalle(ped_id);
 }
 
-function mostrar_pedido(ped_id){
+function mostrar_pedido(ped_id) {
     $.ajax({
         url: "../ajax/pedidos.php?op=mostrar_pedido",
         type: "POST",
@@ -48,7 +48,7 @@ function mostrar_pedido(ped_id){
 
 }
 
-function mostrar_detalle(ped_id_GET){
+function mostrar_detalle(ped_id_GET) {
     if ($.fn.DataTable.isDataTable("#tblDetalle")) {
         $("#tblDetalle").DataTable().destroy();
     }
@@ -58,27 +58,43 @@ function mostrar_detalle(ped_id_GET){
             url: "../ajax/pedidos.php?op=listar_detallePedido",
             type: "GET",
             dataType: "json",
-            data: { ped_id_GET : ped_id_GET }, // Enviar el parámetro cab_id
+            data: { ped_id_GET: ped_id_GET }, // Enviar el parámetro cab_id
             error: function (e) {
                 console.log(e.responseText);
             },
-        }, columnDefs: [
-            {
-                targets: 0, // Índice de la columna 1 (es 0 porque el índice es 0 basado)
-                width: '200px', // Establecer el ancho de la columna
-                className: 'dt-center' // Centrar el contenido de la columna
-            }
-        ],
-        dom: 't', // Solo muestra la tabla, sin los elementos de búsqueda y botones
-        searching: false, // Desactiva la búsqueda
-        paging: true, // Si necesitas paginación, mantén esto activado
-        info: false, // Desactiva la información de filas mostradas
-        ordering: false, // Desactiva la ordenación de las columnas
-        initComplete: function () {
-            $("#tbllistado_wrapper").css("min-height", "300px"); // Mantiene la altura fija
-        },
+        }
     });
 
-} 
+}
+
+
+function cancelarPedido(ped_id) {
+    Swal.fire({
+        title: '¿Estás seguro?',
+        text: "Esta acción cancelará el pedido. ¡No podrás revertirla!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Sí, cancelar',
+        cancelButtonText: 'No, mantener'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.post(
+                "../ajax/pedidos.php?op=cancelarPedido",
+                { ped_id: ped_id },
+                function (e) {
+                    Swal.fire({
+                        title: 'Cancelado',
+                        text: e,
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    });
+                    tabla.ajax.reload();
+                }
+            );
+        }
+    });
+}
 
 init();

@@ -27,4 +27,9 @@ class Pedidos{
         $sql = "CALL sp_pedidos(3, $ped_id)";
         return ejecutarConsultaSP($sql);
     }
+
+    public function cancelarPedido($ped_id,$usu_id){
+        $sql="CALL sp_pedidos_estado(3, $ped_id, 46, 'PEDIDO CANCELADO', $usu_id)";
+        return ejecutarConsulta($sql);
+    }
 }

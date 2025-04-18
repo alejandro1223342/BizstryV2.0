@@ -53,6 +53,9 @@ if (!isset($_SESSION['usu_nombre'])) {
                 <?php
                 require 'modales/modalDetallePedido.php';
                 ?>
+                <?php
+                require 'modales/modalSeguimiento.php';
+                ?>
 
             </section>
             <!-- /.content -->
@@ -64,6 +67,8 @@ if (!isset($_SESSION['usu_nombre'])) {
     require 'footer.php';
     ?>
     <script src="scripts/pedidos.js"></script>
+    <script src="scripts/seguimiento.js"></script>
+
 <?php
 }
 

@@ -6,6 +6,7 @@ $pedidos = new Pedidos();
 
 $ped_id = isset($_POST["ped_id"]) ? limpiarCadena($_POST["ped_id"]) : "";
 $ped_id_GET = isset($_GET["ped_id_GET"]) ? limpiarCadena($_GET["ped_id_GET"]) : "";
+$usu_id = isset($_SESSION['usu_id']) ? $_SESSION['usu_id'] : "";  // Recupera el ID del usuario desde la sesión
 
 
 switch ($_GET["op"]) {
@@ -81,4 +82,10 @@ switch ($_GET["op"]) {
 
         echo json_encode($results);
         break;
+
+
+        case 'cancelarPedido':
+            $rspta = $pedidos->cancelarPedido($ped_id,$usu_id);
+            echo $rspta ? "Pedido Cancelado Correctamente" : "No se pudo cancelar el Pedido";
+            break;
 }

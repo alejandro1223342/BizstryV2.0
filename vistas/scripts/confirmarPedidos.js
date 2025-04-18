@@ -74,21 +74,7 @@ function mostrar_detalle(ped_id_GET){
             error: function (e) {
                 console.log(e.responseText);
             },
-        }, columnDefs: [
-            {
-                targets: 0, // Índice de la columna 1 (es 0 porque el índice es 0 basado)
-                width: '200px', // Establecer el ancho de la columna
-                className: 'dt-center' // Centrar el contenido de la columna
-            }
-        ],
-        dom: 't', // Solo muestra la tabla, sin los elementos de búsqueda y botones
-        searching: false, // Desactiva la búsqueda
-        paging: true, // Si necesitas paginación, mantén esto activado
-        info: false, // Desactiva la información de filas mostradas
-        ordering: false, // Desactiva la ordenación de las columnas
-        initComplete: function () {
-            $("#tbllistado_wrapper").css("min-height", "300px"); // Mantiene la altura fija
-        },
+        }
     });
 
 } 

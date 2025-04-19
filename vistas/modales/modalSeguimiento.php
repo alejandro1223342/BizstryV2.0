@@ -60,7 +60,7 @@ if (!isset($_SESSION['usu_nombre'])) {
                             </div>
                             <div class="form-row">
                             </div>
-                            
+
                             <input type="hidden" class="form-control"
                                 name="cli_id" id="cli_id">
 
@@ -114,6 +114,7 @@ if (!isset($_SESSION['usu_nombre'])) {
 
                         </div>
                         <div class="modal-footer">
+                            <button id="btnFinalizarSeguimiento" type="button" class="btn btn-warning">Finalizar Seguimiento</button>
                             <button id="btnGuardar" type="submit" class="btn btn-primary">Guardar</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         </div>

@@ -40,23 +40,16 @@ if (!isset($_SESSION['usu_nombre'])) {
 
                                 </table>
                             </div>
-
-
                         </div>
-
                     </div>
                     <!-- /.box-body -->
                 </div>
                 <?php
                 require 'modales/modalConfirmarPedido.php';
                 ?>
-
-
             </section>
             <!-- /.content -->
         </div>
-       
-
     <?php
     } else {
         require 'noacceso.php';

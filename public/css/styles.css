@@ -1,0 +1,348 @@
+/* === Contenedor Principal === */
+.form-container {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 1920px;
+    max-height: none;
+    height: auto;
+    margin: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* === Encabezado === */
+.header {
+    background-color: #1e73a6;
+    color: white;
+    padding: 15px 25px;
+    font-weight: 600;
+    font-size: 26px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* === Títulos de Sección === */
+.section-title {
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #1e73a6;
+}
+
+/* === Buscador de Cliente === */
+.client-search-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0px;
+    /* justify-content: space-between;
+    margin-bottom: 20px; */
+}
+
+#formularioPedido {
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+#formularioPedido.active {
+    visibility: visible;
+    height: auto;
+    opacity: 1;
+    overflow: visible;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+    /* flex: 1 1 250px; */
+    flex-shrink: 0;
+}
+
+.search-box input {
+    flex: 0.5;
+    min-width: 150px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 6px 5px;
+}
+
+.search-box button {
+    border-radius: 5px;
+    padding: 6px 16px;
+}
+
+/* === Información del Cliente === */
+.client-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* justify-content: flex-start; */
+    /* flex: 2 1 400px; */
+    font-size: 14px;
+    color: #333;
+}
+
+.client-info div {
+    background-color: #fff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* === Formularios en columnas === */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 8px 10px;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #1e73a6;
+    box-shadow: 0 0 5px rgba(30, 115, 166, 0.2);
+}
+
+/* === Tabla de prendas mejorada === */
+.table-container {
+    margin-top: 15px;
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    background-color: #fff;
+    border-collapse: collapse;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    font-size: 13px;
+}
+
+.table th {
+    background-color: #1e73a6;
+    color: white;
+    padding: 6px 10px;
+    text-align: center;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    white-space: nowrap;
+    /* Para que no se expandan */
+    width: 1%;
+    /* Ocupa el espacio justo necesario */
+    font-size: 12px;
+    /* Tamaño de fuente más pequeño */
+    line-height: 1.2;
+}
+
+.table td {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f4f8fb;
+}
+
+.table tbody tr:hover {
+    background-color: #e8f4fb;
+}
+
+.table td:last-child {
+    text-align: center;
+}
+
+.table .btn+.btn {
+    margin-left: 3px;
+}
+
+/* === Texto muted === */
+.table .text-muted {
+    color: #888;
+    font-style: italic;
+}
+
+#tbllistadoPrendas tbody td {
+    font-size: 13px;
+    /* Letra más pequeña */
+    text-align: center;
+    /* Centrado horizontal */
+    vertical-align: middle;
+    /* Centrado vertical */
+}
+
+/* También puedes centrar los encabezados si quieres coherencia */
+#tbllistadoPrendas thead th {
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* === Botones de acción === */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 6px 10px;
+    transition: background-color 0.2s, transform 0.2s;
+    margin: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* === Colores por tipo de acción === */
+.btn-primary {
+    background-color: #1e73a6;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #165d85;
+}
+
+.btn-warning {
+    background-color: #f0ad4e;
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #ec971f;
+}
+
+.btn-info {
+    background-color: #5bc0de;
+    border: none;
+}
+
+.btn-info:hover {
+    background-color: #31b0d5;
+}
+
+.btn-danger {
+    background-color: #d9534f;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c9302c;
+}
+
+.btn-darkgray {
+    background-color: #6c757d;
+    /* gris medio */
+    color: #fff;
+    border: 1px solid #5a6268;
+}
+
+.btn-darkgray:hover,
+.btn-darkgray:focus {
+    background-color: #5a6268;
+    /* gris más oscuro al pasar el mouse */
+    border-color: #4e555b;
+    color: #fff;
+}
+
+/* Contenedor de DataTable en escritorio */
+#tbllistado_wrapper {
+    width: 100%;
+}
+
+/* En escritorio: sin scroll horizontal */
+.dataTables_wrapper {
+    overflow-x: unset;
+}
+
+#tbllistadoPrendas {
+    width: 100%; /* Que se adapte al contenedor en pantallas grandes */
+}
+
+/* === Responsive (pantallas pequeñas) === */
+@media (max-width: 768px) {
+    .client-search-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-box,
+    .client-info,
+    .form-group {
+        width: 100%;
+    }
+
+    .table td,
+    .table th {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    #tbllistado_wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .dataTables_wrapper {
+        overflow-x: auto;
+    }
+
+    #tbllistadoPrendas {
+        min-width: 600px; /* Solo en móviles, para forzar scroll si no cabe */
+    }
+}
+
+
+/* Estilo base para todos los <select> */
+select.form-control {
+    color: #000 !important;
+    /* texto negro base */
+    background-color: #fff;
+}
+
+/* Hover en el <select> */
+select.form-control:hover {
+    color: #1e73a6 !important;
+    /* texto azul en hover */
+    cursor: pointer;
+}
+
+/* Estilo para Bootstrap Select */
+.bootstrap-select .btn {
+    color: #726f6f !important;
+    /* texto negro por defecto */
+    background-color: #fff !important;
+    border: 1px solid #ccc;
+    transition: color 0.2s ease-in-out;
+}
+
+/* Hover del botón de Bootstrap Select */
+.bootstrap-select .btn:hover,
+.bootstrap-select .btn:focus {
+    color: #1e73a6 !important;
+    /* azul en hover */
+    border-color: #1e73a6 !important;
+}
